@@ -40,12 +40,11 @@ Copiar y pegar las sentencias sql para tener los datos de prueba.
 
 ## 💻 Tecnologías Utilizadas
 
-- **Spring Boot** – Framework principal para la creación de la API.
-- **Spring Data JPA** – Gestión y acceso a la base de datos MySQL.
-- **Spring Security** – Protección de endpoints críticos.
-- **MySQL** – Base de datos para el almacenamiento de registros.
-- **JUnit 5 & Mockito** – Pruebas unitarias para garantizar la calidad del código.
-
+- **Spring Boot** 
+- **Spring Data JPA** 
+- **Spring Security** 
+- **MySQL** 
+- **JUnit 5 & Mockito** 
 ## ⚙️ Validaciones Implementadas
 
 - **Altas:**
