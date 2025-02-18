@@ -1,0 +1,763 @@
+{
+	"info": {
+		"_postman_id": "70ce4105-4bc2-4932-b456-8e0d291b8f03",
+		"name": "Prueba Tecnica 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28372332"
+	},
+	"item": [
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "Obtener listado de hoteles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener hotel por código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels/H100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels",
+								"H100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listado de habitaciones disponibles",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels/rooms?dateFrom=2025-01-10&dateTo=2025-01-20&destination=Madrid\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels",
+								"rooms"
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "2025-01-10"
+								},
+								{
+									"key": "dateTo",
+									"value": "2025-01-20"
+								},
+								{
+									"key": "destination",
+									"value": "Madrid\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear un hotel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hotelCode\": \"H102\",\r\n  \"name\": \"Hotel Nuevo Horizonte\",\r\n  \"city\": \"Valencia\",\r\n  \"roomType\": \"Double\",\r\n  \"pricePerNight\": 90.0,\r\n  \"availableFrom\": \"01/02/2025\",\r\n  \"availableTo\": \"31/12/2025\",\r\n  \"isBooked\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar un hotel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hotelCode\": \"H102\",\r\n  \"name\": \"Hotel Nuevo Horizonte ACTUALIZADO\",\r\n  \"city\": \"Valencia\",\r\n  \"roomType\": \"Double\",\r\n  \"pricePerNight\": 95.0,\r\n  \"availableFrom\": \"01/01/2025\",\r\n  \"availableTo\": \"31/01/2025\",\r\n  \"isBooked\": false\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels/edit/H100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels",
+								"edit",
+								"H100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un hotel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels/delete/H102",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels",
+								"delete",
+								"H102"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vuelos",
+			"item": [
+				{
+					"name": "Obtener listado de vuelos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener vuelo por número",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flights/FL100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flights",
+								"FL100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listado de vuelos disponibles (ida y vuelta)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flights/available?dateFrom=15/03/2025&dateTo=20/03/2025&origin=Madrid&destination=Paris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flights",
+								"available"
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "15/03/2025"
+								},
+								{
+									"key": "dateTo",
+									"value": "20/03/2025"
+								},
+								{
+									"key": "origin",
+									"value": "Madrid"
+								},
+								{
+									"key": "destination",
+									"value": "Paris"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear un vuelo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"flightNumber\": \"FL102\",\r\n  \"origin\": \"Madrid\",\r\n  \"destination\": \"Paris\",\r\n  \"seatType\": \"Economy\",\r\n  \"price\": 120.0,\r\n  \"departureDate\": \"15/03/2025\",\r\n  \"returnDate\": \"20/03/2025\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agency/flights/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flights",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar un vuelo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"flightNumber\": \"FL102\",\r\n  \"origin\": \"Madrid\",\r\n  \"destination\": \"Paris\",\r\n  \"seatType\": \"Business\",\r\n  \"price\": 150.0,\r\n  \"departureDate\": \"15/03/2025\",\r\n  \"returnDate\": \"20/03/2025\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agency/flights/edit/FL100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flights",
+								"edit",
+								"FL100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un vuelo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flights/delete/FL101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flights",
+								"delete",
+								"FL101"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas de Hoteles",
+			"item": [
+				{
+					"name": "Obtener listado de reservas de hotel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/room-booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"room-booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reserva de hotel por ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/room-booking/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"room-booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Realizar reserva de habitación",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dateFrom\": \"05/04/2024\",\r\n  \"dateTo\": \"09/04/2024\",\r\n  \"hotelCode\": \"H100\",\r\n  \"peopleQ\": 2,\r\n  \"roomType\": \"Double\",\r\n  \"guests\": [\r\n    \"Juan Perez\",\r\n    \"Ana Garcia\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agency/room-booking/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"room-booking",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar reserva de hotel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/room-booking/cancel/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"room-booking",
+								"cancel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas de Vuelos",
+			"item": [
+				{
+					"name": "Obtener listado de reservas de vuelo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flight-booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flight-booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener reserva de vuelo por ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flight-booking/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flight-booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Realizar reserva de vuelo (solo ida)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-03-15\",\r\n    \"origin\": \"Madrid\",\r\n    \"destination\": \"Paris\",\r\n    \"flightCode\": \"FL102\",\r\n    \"peopleQ\": 2,\r\n    \"seatType\": \"Economy\",\r\n    \"passengers\": [\r\n        \"Juan Pérez\",\r\n         \"María González\"\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/agency/flight-booking/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flight-booking",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar reserva de vuelo",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flight-booking/cancel/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flight-booking",
+								"cancel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
